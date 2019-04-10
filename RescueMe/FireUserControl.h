@@ -18,7 +18,9 @@ using namespace System::IO;
 using namespace System::Runtime::InteropServices;
 
 // Global objects
-__declspec(selectany)  cv::dnn::Net mobileNetSSD = cv::dnn::readNetFromCaffe("./MobileNetSSD_deploy.prototxt", "./MobileNetSSD_deploy.caffemodel");
+__declspec(selectany)  cv::dnn::Net mobileNetSSD = cv::dnn::readNetFromCaffe(
+	"./models/MobileNetSSD/MobileNetSSD_deploy.prototxt", 
+	"./models/MobileNetSSD/MobileNetSSD_deploy.caffemodel");
 
 namespace RescueMe {
 
