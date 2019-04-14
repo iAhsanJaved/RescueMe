@@ -22,3 +22,22 @@ void Utils::Mat2PictureBox(cv::Mat frame, System::Windows::Forms::PictureBox^ pi
 
 	pictureBox->Refresh();
 }
+
+String^ Utils::PictureBoxToBase64(System::Windows::Forms::PictureBox^ pictureBox)
+{
+	String^ base64String;
+	MemoryStream^ memStream = gcnew MemoryStream();
+	try
+	{
+		pictureBox->Image->Save(memStream, Drawing::Imaging::ImageFormat::Jpeg);
+		array<Byte> ^imageBytes = memStream->ToArray();
+		
+		base64String = Convert::ToBase64String(imageBytes);
+	}
+	finally
+	{
+		memStream->Close();
+	}
+
+	return base64String;
+}

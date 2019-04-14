@@ -54,6 +54,7 @@ namespace RescueMe {
 
 
 
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -101,9 +102,9 @@ namespace RescueMe {
 			// 
 			this->logoPictureBox->BackColor = System::Drawing::Color::Transparent;
 			this->logoPictureBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPictureBox.Image")));
-			this->logoPictureBox->Location = System::Drawing::Point(12, 19);
+			this->logoPictureBox->Location = System::Drawing::Point(12, 23);
 			this->logoPictureBox->Name = L"logoPictureBox";
-			this->logoPictureBox->Size = System::Drawing::Size(162, 61);
+			this->logoPictureBox->Size = System::Drawing::Size(162, 50);
 			this->logoPictureBox->TabIndex = 3;
 			this->logoPictureBox->TabStop = false;
 			// 

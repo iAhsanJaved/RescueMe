@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccidentUserControl.cpp" />
+    <ClCompile Include="AuthForm.cpp" />
     <ClCompile Include="FallUserControl.cpp" />
     <ClCompile Include="FireUserControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -155,6 +156,9 @@
   <ItemGroup>
     <ClInclude Include="AccidentUserControl.h">
       <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="AuthForm.h">
+      <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FallUserControl.h">
       <FileType>CppControl</FileType>
