@@ -3,6 +3,7 @@
 #include "FallUserControl.h"
 #include "FireUserControl.h"
 #include "AccidentUserControl.h"
+#include "Node.h"
 
 namespace RescueMe {
 
@@ -20,13 +21,19 @@ namespace RescueMe {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
+		Node^ node;
+
 		MainForm(void)
 		{
 			InitializeComponent();
+			node = gcnew Node();
+
 			//
 			//TODO: Add the constructor code here
 			//
 		}
+
+
 
 	protected:
 		/// <summary>
@@ -178,7 +185,7 @@ namespace RescueMe {
 			// 
 			this->headerPanel->BackColor = System::Drawing::Color::DimGray;
 			this->headerPanel->Dock = System::Windows::Forms::DockStyle::Top;
-			this->headerPanel->ForeColor = System::Drawing::Color::Black;
+			this->headerPanel->ForeColor = System::Drawing::Color::White;
 			this->headerPanel->Location = System::Drawing::Point(187, 0);
 			this->headerPanel->Name = L"headerPanel";
 			this->headerPanel->Size = System::Drawing::Size(706, 11);
@@ -257,6 +264,7 @@ namespace RescueMe {
 		// Load FallUserControl
 		this->mainPanel->Controls->Clear();
 		FallUserControl^ uc = gcnew FallUserControl();
+		uc->emergencyAlert->node = this->node;
 		this->mainPanel->Controls->Add(uc);
 		this->mainPanel->Show();
 		// Change Nav Buttons BackColor
@@ -269,6 +277,7 @@ namespace RescueMe {
 	private: System::Void fallNavBtn_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->mainPanel->Controls->Clear();
 		FallUserControl^ uc = gcnew FallUserControl();
+		uc->emergencyAlert->node = this->node;
 		this->mainPanel->Controls->Add(uc);
 		this->mainPanel->Show();
 		// Change Nav Buttons BackColor

@@ -1,4 +1,5 @@
 #include "MainForm.h"
+/*
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -9,4 +10,4 @@ void Main(array<System::String^>^ args) {
 	RescueMe::MainForm form;
 	Application::Run(%form);
 }
-
+*/

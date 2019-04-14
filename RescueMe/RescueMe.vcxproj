@@ -142,15 +142,20 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccidentUserControl.cpp" />
     <ClCompile Include="AuthForm.cpp" />
+    <ClCompile Include="EmergencyAlert.cpp" />
     <ClCompile Include="FallUserControl.cpp" />
     <ClCompile Include="FireUserControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +165,7 @@
     <ClInclude Include="AuthForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="EmergencyAlert.h" />
     <ClInclude Include="FallUserControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -169,11 +175,15 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AccidentUserControl.resx">
       <DependentUpon>AccidentUserControl.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuthForm.resx">
+      <DependentUpon>AuthForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FallUserControl.resx">
       <DependentUpon>FallUserControl.h</DependentUpon>

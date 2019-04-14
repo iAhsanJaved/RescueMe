@@ -7,6 +7,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/dnn.hpp>
 #include "Utils.h"
+#include "EmergencyAlert.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -33,12 +34,18 @@ namespace RescueMe {
 		cv::VideoCapture* capture;
 		float threshold;
 		int personClassID;
+		bool isPosted;
 
 	public:
+		EmergencyAlert^ emergencyAlert;
 
 		FallUserControl(void)
 		{
 			InitializeComponent();
+
+			emergencyAlert = gcnew EmergencyAlert();
+			emergencyAlert->emergencyTypeID = 1;
+
 			threshold = 0.2;
 			personClassID = 15;
 			//
@@ -220,6 +227,12 @@ namespace RescueMe {
 		#pragma endregion
 		private: System::Void startButton_Click(System::Object^  sender, System::EventArgs^  e) {
 			
+			isPosted = false;
+			//MessageBox::Show(
+			//	"\nNodeID: " + this->emergencyAlert->node->id +
+			//	"\nEmergencyTypeID: " + this->emergencyAlert->emergencyTypeID
+			//	, "emergencyAlert", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+
 			if (this->startButton->Text ==  "Start")
 			{
 				if (this->sourceComboBox->Text == "Video File")
@@ -303,6 +316,17 @@ namespace RescueMe {
 						float widthFactor = frame.cols / 300.0;
 
 						cv::rectangle(frame, cv::Point(x1, y1), cv::Point(x2, y2), cv::Scalar(0, 255, 0), 1);
+					
+						if (confidence > 0.85 && !this->isPosted) {
+							this->emergencyAlert->image = Utils::PictureBoxToBase64(this->framePictureBox);
+							if (this->emergencyAlert->postAlert())
+							{
+								this->isPosted = true;
+							}
+							//stop_video_processing();
+						}
+
+						
 					}
 				}
 
